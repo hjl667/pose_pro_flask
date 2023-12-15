@@ -1,0 +1,1 @@
+This is a flask application to create API endpoints for the pose estimation module.
