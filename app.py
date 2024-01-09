@@ -2,7 +2,6 @@ from flask import Flask, request, jsonify
 import mediapipe as mp
 import cv2
 import numpy as np
-from services import *
 from services.pose_estimator import Pose_Estimator
 
 app = Flask(__name__)
