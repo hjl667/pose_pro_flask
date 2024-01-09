@@ -2,6 +2,8 @@ from flask import Flask, request, jsonify
 import mediapipe as mp
 import cv2
 import numpy as np
+from services import *
+from services.pose_estimator import Pose_Estimator
 
 app = Flask(__name__)
 
@@ -25,23 +27,10 @@ def upload_file():
         npimg = np.frombuffer(filestr, np.uint8)
         image = cv2.imdecode(npimg, cv2.IMREAD_COLOR)
 
-        # Process the image with MediaPipe Pose.
-        results = pose.process(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
+        pose_estimator = Pose_Estimator()
+        results = jsonify(pose_estimator.estimate_pose(image))
 
-        if not results.pose_landmarks:
-            return 'No pose landmarks detected'
-
-        # Extract pose landmarks.
-        landmarks = []
-        for landmark in results.pose_landmarks.landmark:
-            landmarks.append({
-                'x': landmark.x,
-                'y': landmark.y,
-                'z': landmark.z,
-                'visibility': landmark.visibility
-            })
-
-        return jsonify(landmarks)
+        return results
 
     return 'Error processing file'
 
