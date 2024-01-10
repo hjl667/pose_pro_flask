@@ -1,8 +1,9 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_file
 import mediapipe as mp
 import cv2
 import numpy as np
 from services.pose_estimator import Pose_Estimator
+from services.vid2bvh import vid2bvh
 
 app = Flask(__name__)
 
@@ -34,6 +35,23 @@ def upload_file():
     return 'Error processing file'
 
 
+@app.route('/animate', method=['POST'])
+def animate_video():
+    if 'file' not in request.files:
+        return 'No file part', 400
+
+    file = request.files['file']
+
+    if file.filename == '':
+        return 'No selected file', 400
+
+    if file:
+        # logic to convert file to bvh
+        bvhConverter = vid2bvh
+        bvh_content = bvhConverter.convert(file)
+
+        return send_file(bvh_content, as_attachment=True)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
-
