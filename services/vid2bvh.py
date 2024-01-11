@@ -3,7 +3,7 @@ from io import BytesIO
 import cv2
 
 from pose_estimator import Pose_Estimator
-
+from services.bvh_skeleton.h36m_skeleton import H36mSkeleton
 
 def vid2landmarks(file):
     pose_estimator = Pose_Estimator
@@ -30,13 +30,15 @@ def vid2landmarks(file):
 
     return vid_landmarks
 
+def convert(vid_landmarks):
 
 class vid2bvh:
     def __init__(self):
         self.pose_estimator = Pose_Estimator
-
+        self.bvhConverter = H36mSkeleton
     def convert(self, file):
 
         vid_landmarks = vid2landmarks(file)
-
-        return ''
+        header = self.bvhConverter.get_bvh_header(vid_landmarks)
+        res = self.bvhConverter.poses2bvh(vid_landmarks, header)
+        return res;
