@@ -3,6 +3,8 @@ from io import BytesIO
 import cv2
 
 from pose_estimator import Pose_Estimator
+
+
 def vid2landmarks(file):
     pose_estimator = Pose_Estimator
 
@@ -20,14 +22,21 @@ def vid2landmarks(file):
 
     cap.release()
 
-    for frame in frames:
-        landmarks = ''
+    vid_landmarks = {}
 
-    return landmarks
+    for index, frame in enumerate(frames):
+        landmarks = pose_estimator.estimate_pose(frame)
+        vid_landmarks[index] = landmarks
+
+    return vid_landmarks
+
 
 class vid2bvh:
     def __init__(self):
-        self.count = 1
+        self.pose_estimator = Pose_Estimator
 
     def convert(self, file):
+
+        vid_landmarks = vid2landmarks(file)
+
         return ''

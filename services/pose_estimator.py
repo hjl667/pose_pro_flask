@@ -1,6 +1,5 @@
 import mediapipe as mp
 import cv2
-from models import Coordinate, Frame, Video
 
 def convert_mediapipe_to_h36m(mediapipe_keypoints):
     mediapipe_keypoints_labels = []
@@ -43,12 +42,9 @@ def convert_mediapipe_to_h36m(mediapipe_keypoints):
             mediapipe_keypoints_labels.append(mp_label)
             h36m_keypoints_labels.append(h36m_label)
 
-    human36m_keypoints = {}
-
-
-
     for i in mediapipe_keypoints:
         if human36m_keypoints[i] is not None:
+
             human36m_keypoints = {
                 'x': mediapipe_keypoints[i]['x'],
                 'y': mediapipe_keypoints[i]['y'],
@@ -82,7 +78,7 @@ class Pose_Estimator:
 
         h36m_keypoints, = convert_mediapipe_to_h36m(landmarks)
 
-        return , h36m_keypoints
+        return h36m_keypoints
 
 
         # Extract pose landmarks.
