@@ -1,0 +1,55 @@
+            H36M format:
+
+            'Hip': 0,
+            'RightHip': 1,
+            'RightKnee': 2,
+            'RightAnkle': 3,
+            'LeftHip': 4,
+            'LeftKnee': 5,
+            'LeftAnkle': 6,
+            'Spine': 7,
+            'Thorax': 8,
+            'Neck': 9,
+            'HeadEndSite': 10,
+            'LeftShoulder': 11,
+            'LeftElbow': 12,
+            'LeftWrist': 13,
+            'RightShoulder': 14,
+            'RightElbow': 15,
+            'RightWrist': 16,
+
+            Mediapipe format:
+
+            Nose
+            Left Eye Inner
+            Left Eye
+            Left Eye Outer
+            Right Eye Inner
+            Right Eye
+            Right Eye Outer
+            Left Ear
+            Right Ear
+            Mouth Left
+            Mouth Right
+            Left Shoulder
+            Right Shoulder
+            Left Elbow
+            Right Elbow
+            Left Wrist
+            Right Wrist
+            Left Pinky
+            Right Pinky
+            Left Index
+            Right Index
+            Left Thumb
+            Right Thumb
+            Left Hip
+            Right Hip
+            Left Knee
+            Right Knee
+            Left Ankle
+            Right Ankle
+            Left Heel
+            Right Heel
+            Left Foot Index
+            Right Foot Index

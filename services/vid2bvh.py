@@ -30,7 +30,6 @@ def vid2landmarks(file):
 
     return vid_landmarks
 
-def convert(vid_landmarks):
 
 class vid2bvh:
     def __init__(self):
