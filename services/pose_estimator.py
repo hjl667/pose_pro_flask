@@ -37,6 +37,7 @@ def convert_mediapipe_to_h36m(mediapipe_pose):
     head_vector = eyes_mid - mediapipe_pose[0]
     h36m_pose[10] = mediapipe_pose[0] + head_vector * 2  # Rough estimation of HeadEndSite
 
+    # 17*3 dict
     return h36m_pose
 
 class Pose_Estimator:
@@ -64,3 +65,5 @@ if __name__ == '__main__':
     pose_estimator = Pose_Estimator()
     landmarks = pose_estimator.estimate_pose(image)
     print(landmarks)
+
+

@@ -19,37 +19,48 @@
             'RightWrist': 16,
 
             Mediapipe format:
+            0 - nose
+            1 - left eye (inner)
+            2 - left eye
+            4 - right eye (inner)
+            5 - right eye
+            7 - left ear
+            8 - right ear
+            11 - left shoulder
+            12 - right shoulder
+            13 - left elbow
+            14 - right elbow
+            15 - left wrist
+            16 - right wrist
+            23 - left hip
+            24 - right hip
+            25 - left knee
+            26 - right knee
+            27 - left ankle
+            28 - right ankle
+            29 - left heel
+            30 - right heel
+            31 - left foot index
+            32 - right foot index
 
-            Nose
-            Left Eye Inner
-            Left Eye
-            Left Eye Outer
-            Right Eye Inner
-            Right Eye
-            Right Eye Outer
-            Left Ear
-            Right Ear
-            Mouth Left
-            Mouth Right
-            Left Shoulder
-            Right Shoulder
-            Left Elbow
-            Right Elbow
-            Left Wrist
-            Right Wrist
-            Left Pinky
-            Right Pinky
-            Left Index
-            Right Index
-            Left Thumb
-            Right Thumb
-            Left Hip
-            Right Hip
-            Left Knee
-            Right Knee
-            Left Ankle
-            Right Ankle
-            Left Heel
-            Right Heel
-            Left Foot Index
-            Right Foot Index
+
+        self.keypoint2index = {
+            'Nose': 0,
+            'LeftEye': 1,
+            'RightEye': 2,
+            'LeftEar': 3,
+            'RightEar': 4,
+            'LeftShoulder': 5,
+            'RightShoulder': 6,
+            'LeftElbow': 7,
+            'RightElbow': 8,
+            'LeftWrist': 9,
+            'RightWrist': 10,
+            'LeftHip': 11,
+            'RightHip': 12,
+            'LeftKnee': 13,
+            'RightKnee': 14,
+            'LeftAnkle': 15,
+            'RightAnkle': 16,
+            'Neck': 17
+        }
