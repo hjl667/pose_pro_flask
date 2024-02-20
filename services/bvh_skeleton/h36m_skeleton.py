@@ -441,8 +441,6 @@ class H36mSkeleton(object):
         channels = []
         for frame, pose in enumerate(poses_3d):
             channels.append(self.pose2euler(pose, header))
-            # channels.append(self.pose2euler_SmartBody(pose, header))
-            # channels.append(self.pose2euler_SmartBody_Modify(pose, header))
 
         if output_file:
             bvh_helper.write_bvh(output_file, header, channels)
